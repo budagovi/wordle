@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --tableSize: 40vw;
+    --puzzleSize: calc(var(--tableSize)/5);
+
+    /* PALLETE */
+    --darkGreen: #283618;
+    --lightGreen: #606c38;
+    --whitish: #fefae0;
+    --lightBrowish: #dda15e;
+    --browish: #bc6c25;
+}
+
+body {
+    background-color: #fefae0;
+    margin: 0;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 0.3vw 0;
+    font-size: 3.5vw;
+    font-family: 'Pacifico', cursive;
+    color: var(--darkGreen);
+}
+
+/* START MENU */
+menu, .buttons {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+menu {
+    align-items: center;
+}
+
+h2.menu {
+    margin: 0;
+    font-size: 2.5vw;
+    font-family: 'Tilt Warp', cursive;
+    color: #606c38;
+}
+
+menu button:nth-of-type(1) {
+    margin-top: 2em;
+}
+menu button, .playAgainBtn {
+    margin-top: 1em;
+    padding: 0.6em 1em;
+    background-color: var(--lightBrowish);
+    color: var(--whitish);
+    font-size: 2vw;
+    font-family: 'Ubuntu', sans-serif;
+
+    border-radius: 0.5em;
+    border: 2px solid var(--browish);
+}
+
+menu button:hover, .playAgainBtn:hover {
+    scale: 1.02;
+    transition: .1s ease-in-out;
+    border: 2px solid var(--browish);
+    background-color: #bc6c25;;
+}
+
+/* GAMEPLAY MODE */
+.gameTable {
+    width: var(--tableSize);
+    height: var(--tableSize);
+    box-sizing: content-box;
+    border-spacing: 10px;
+    display: none;
+}
+
+td {
+    border: 1px solid black;
+    width: 20%;
+    height: 20%;
+    font-size: calc(var(--puzzleSize)/1.5);
+    padding: 0;
+    line-height: 0.1em;
+    text-align: center;
+}
+
+
+/*  RESULTS  */
+h3.resultText {
+    font-size: 2.2vw;
+    margin: 1em 0 0.3em;
+    font-family: 'Ubuntu', sans-serif;
+
+    display: none;
+    
+}
+
+.playAgainBtn {
+    display: none;
+
+}
+
+span.guessedWord {
+    color: #ad4120;
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 2.5vw;
+}
+
+/* RESOLUTIONS */
+
+@media screen and (max-width: 850px) {
+    :root {
+        --tableSize: 65vw;
+    }
+
+    h1 {
+        font-size: 4.5vw;
+    }
+}
+
+
+@media screen and (max-width: 720px) {
+    :root {
+        --tableSize: 80vw;
+    }
+
+    .gameTable {
+        border-spacing: 5px;
+    }
+
+    h1 {
+        font-size: 5.5vw;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    :root {
+        --tableSize: 95vw;
+    }
+
+    .gameTable {
+        border-spacing: 2px;
+    }
+
+    h1 {
+        font-size: 6vw;
+    }
+}
