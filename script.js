@@ -66,11 +66,16 @@ const startGame = function (word) {
             tempWord = tempWord.slice(0, tempWord.length - 1);
         }
         else if (e.keyCode === 13 && tempWord.length === 5) {
-            //check for yellows
-            for (let j = 0; j < 5; ++j)
+            //check for yellows and reds
+            for (let j = 0; j < 5; ++j) {
+                let flag= false;
                 for (let k = 0; k < 5; ++k)
-                    if (word[k] === tempWord[j])
+                    if (word[k] === tempWord[j]) {
                         puzzles[i - 4 + j].style.backgroundColor = "rgb(248 255 117)";
+                        flag = true;
+                    }
+                    if(!flag) puzzles[i - 4 + j].style.backgroundColor = "#fa4d4d";
+            }
 
             //check for greens
             for (let j = 0; j < 5; ++j)
